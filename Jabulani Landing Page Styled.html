@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jabulani Football</title>
+  <style>
+    body {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+      background-image: url(images/forlan2.jpg);
+      background-size: cover;
+      backdrop-filter: blur(2px);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #8d9933;
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 250px;
+      height: auto;
+    }
+
+    h2 {
+      color: green;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 10px;
+      color: yellow;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: lightblue; /* Change label text color to light blue */
+    }
+
+    select,
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: grey; /* Change input text color to grey */
+    }
+
+    input[type="submit"] {
+      background-color: #0099CC;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 15px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0077B3;
+    }
+
+    p{
+      text-align: center;
+      color: grey; /* Change paragraph text color to grey */
+    }
+
+    .features-container{
+      text-align: center;
+      color: lightblue; /* Change container text color to light blue */
+    }
+</style>
+</head>
+<body>
+  <h1><i>Jabulani Football</i></h1>
+  <p><b>2010 FIFA South Africa <u>Football</u></b></p>
+  <img src="https://matchballs.eu/sites/default/files/DSC_0399_cr_0.jpg" alt="Jabulani Football Image" width="150" height="200">
+  <div class="features-container">
+  <h2>Product main features</h2>
+  <ul>
+    <li>Grip and flight stability</li>
+    <li>Reduced water absorption</li>
+    <li>Thermally bonded panels</li>
+    <li>High visibility</li>
+    <li>FIFA-approved</li>
+  </ul>
+  <form>
+    <h2>Order Now!</h2>
+    <label for="myDropdown">Sizes:</label>
+    <select id="myDropdown">
+      <option value="option">Options</option>
+      <option value="option2">size 3(23"-24"circumference)age 8 and under</option>
+      <option value="option3">size 4(25"-26"circumference)age 8-12</option>
+      <option value="option4">size 5(27"-28"circumference)age 13&Up</option>
+    </select><br><br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter name here" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+    <input type="submit" value="Submit">
+    </form>
+  </body>
+  </html>
