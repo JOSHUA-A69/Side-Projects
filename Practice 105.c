@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define Amount 1000
+#define Amount 0.00
 
 void checkBalance(float currentBalance, float increasedBalance, float reducedBalance){
 	printf("\n\nCurrent Balance is %.2f\n",currentBalance);
