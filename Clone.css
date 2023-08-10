@@ -1,0 +1,89 @@
+body{
+    background: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section{
+    width: 40%;
+    display: inline-block;
+    position: absolute;
+    top:200px;
+    left: 50px;
+}
+
+h1{
+    color: #0057ff;
+    font-size: 60px;
+    height: 20px;
+}
+
+article{
+    font-size: 36px;
+    color:black;
+    font-weight: 350;
+}
+
+#container{
+    width: 380px;
+    height: 300px;
+    border-radius: 15px;
+    background-color: white;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    float: right;
+    position: relative;
+    top: 200px;
+    right: 50px;
+    flex-wrap: wrap;
+}
+
+input{
+    height: 30px;
+    width: 330px;
+    border: 1px solid #0000003d;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+button{
+    width: 130px;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.login{
+    width: 300px;
+    background-color: #1562ff;
+}
+
+#newaccount{
+    background-color: blue;
+    width: 200px;
+}
+
+#recovery{
+    text-decoration: none;
+    color: #1577ff;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+p{
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    bottom: 1280px;
+    right: 65px;
+    text-color: black;
+}
