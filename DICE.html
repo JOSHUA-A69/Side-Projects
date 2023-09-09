@@ -1,0 +1,123 @@
+<html>
+
+<script type="text/javascript">
+function Roll()
+{
+	var x;
+	x=(Math.floor(Math.random()*41+1));
+	document.getElementById("dice1").innerHTML= x;
+	
+	var y;
+	y=(Math.floor(Math.random()*41+1));
+	document.getElementById("dice2").innerHTML = y;
+	
+	document.getElementById("score").innerHTML = x+y;
+}
+</script>
+
+<style type="text/css">
+body
+{
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+#dice
+{
+border-top-style:dotted ;
+border-right-style:solid ;
+border-bottom-style:dotted ;
+border-left-style:solid ;
+margin:100px 200px 100px 200px;
+}
+
+#r
+{
+height: 210px;
+width: 210px;
+
+}
+
+p#dice1
+{
+height: 170px;
+width: 170px;
+border: 5px solid;
+padding: 10px;
+clear:upperleft;
+margin: 10px;
+font-size: 170px;
+transform: scale(6deg, 15deg);
+float:left;
+background: LawnGreen ;
+}
+
+p#dice3
+{
+height: 170px;
+width: 170px;
+border: 5px solid;
+padding: 10px;
+clear:upperleft;
+margin: 10px;
+font-size: 170px;
+transform: scale(6deg, 15deg);
+float:left;
+background: LawnGreen ;
+}
+p#dice2
+{
+height: 170px;
+width: 170px;
+border: 5px solid;
+padding: 10px;
+clear:upperleft;
+margin: 10px;
+font-size: 170px;
+transform: scale(6deg, 15deg);
+background: LawnGreen ;
+float:left;
+}
+
+p#score
+{
+height: 170px;
+width: 170px;
+border: 5px solid;
+padding: 10px;
+clear:upperleft;
+margin: 10px;
+font-size: 170px;
+transform: scale(6deg, 15deg);
+float:left;
+background: LawnGreen ;
+}
+#head
+{
+font-color: cyan;
+font-size: 20px;
+}
+
+</style>
+
+<head>
+<div id="head">
+<h1 align="center"> DICE GAME</h1> <hr>
+</div>
+</head>
+
+<body Background= "C:\Users\Vianice\Pictures\Im Working On It\r4RtXBr.png">
+<body> <center>
+<div id="dice">
+<div>
+	<p id="dice1"> 
+	
+	<p id="dice2">
+
+	<p id="score">
+</div>
+
+<input type="button" id="r" value="Roll" onClick="Roll()" > </button>
+
+</div>
+</body></center>
+</html>
