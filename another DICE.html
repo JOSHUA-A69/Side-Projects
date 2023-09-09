@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>Dice Game</title>
+<script type="text/javascript">
+function Roll(){
+	var x;
+	x=(Math.floor(Math.random()*41+1));
+	document.getElementById("dice1").innerHTML= x;
+	
+	var y;
+	y=(Math.floor(Math.random()*41+1));
+	document.getElementById("dice2").innerHTML = y;
+	
+	document.getElementById("score").innerHTML = x+y;
+	
+	if(x==y){
+		document.getElementById("win").innerHTML = "You WIN!";
+		document.getElementById("roll").disabled = true;
+		document.getElementById("reset").value = "Play Again";
+	}else{
+		document.getElementById("win").innerHTML = "";
+		document.getElementById("reset").value = "Reset";
+	}
+}
+function Reset(){
+	document.getElementById("dice1").innerHTML = 0;
+	document.getElementById("dice2").innerHTML = 0;
+	document.getElementById("score").innerHTML = 0;
+	document.getElementById("win").innerHTML = "";
+	document.getElementById("roll").disabled = false;
+	}
+</script>
+
+<style type="text/css">
+body{
+	background-image: url('images/green.png');
+	background-repeat:no-repeat;
+	background-size: cover;
+	font-family: Georgia;
+}
+
+#head{
+	border-bottom: 1px solid white;
+	margin-bottom: 20px;
+}
+
+h1{
+	text-shadow: 0 0 10px black;
+	color: White;
+	font-size: 60px;
+	padding: 10px 0;
+	margin: 0;
+	}
+	
+#dice{
+	max-width: 768px;
+	background-color: red;
+	padding: 20px;
+	overflow: hidden;
+	border: 15px solid gold;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	}
+
+#dice1{
+	height: 170px;
+	width: 170px;
+	padding: 10px;
+	margin: 10px;
+	font-size: 130px;
+	float:left;
+	background-color: snow;
+	border-radius: 20px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.60);
+	border: 2px solid brown;
+	font-weight: bold;
+}
+
+#dice2{
+	height: 170px;
+	width: 170px;
+	padding: 10px;
+	clear:upperleft;
+	margin: 10px;
+	font-size: 130px;
+	float:left;
+	background-color: snow;
+	border-radius: 20px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.60);
+	border: 2px solid brown;
+	font-weight: bold;
+}
+
+#result p{
+	color: White;
+	font-size: 32px;
+	margin-bottom: 0;
+	margin-top: 20px;
+	}
+
+#score{
+	font-size: 120px;
+	color: Yellow;
+	font-weight: bold;
+}
+
+#roll{
+	font-size: 24px;
+	background-color: maroon;
+	color: White;
+	border: 5px solid gold;
+	cursor: pointer;
+	border-radius: 10px;
+	padding: 10px 20px;
+	font-weight: bold;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.60);
+	}
+	
+#roll:hover{
+	background-color: red;
+	}
+	
+#reset{
+	font-size: 24px;
+	background-color: black;
+	color: White;
+	border: 5px solid green;
+	cursor: pointer;
+	border-radius: 10px;
+	padding: 10px 20px;
+	font-weight: bold;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.60);
+	}
+	
+#reset:hover{
+	background-color: white;
+	color: maroon;
+	}
+
+#win{
+    color: lawngreen;
+    font-size: 80px;
+    margin: 20px;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.60);
+	}
+</style>
+</head>
+<body>
+	<center>
+		<div id="head">
+			<h1>DICE GAME</h1>
+		</div>
+		<div id="dice">
+			<div id="dice1">0</div>
+			<div id="dice2">0</div>
+			<div id="result">
+				<p>Your Total Score</p>
+				<div id="score"></div>
+			</div>
+		</div>
+		<input type="button" id="roll" value="Roll the Dice" onClick="Roll()" ></button>
+		<input type="button" id="reset" value="Reset" onClick="Reset()" ></button>
+		<h2 id="win"></h2>
+	</center>
+</body>
+</html>
