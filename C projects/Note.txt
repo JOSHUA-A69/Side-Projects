@@ -1,1 +1,0 @@
-This is the First file of the C projects folder.
