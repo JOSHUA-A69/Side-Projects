@@ -17,6 +17,9 @@ const SYMBOLS_VALUES = {
   "D": 2
 }
 
+// Define the balance variable outside the game loop
+let balance = 0;
+
 // 1. Deposit some Money
 function deposit() {
   let valid = false;
@@ -109,15 +112,33 @@ const getWinnings = (rows, bet, lines) => {
 }
 
 // 6. Give the user their winnings
-// 7. Play again
-let balance = deposit();
-const numberOfLines = getNumberOfLines();
-const bet = getBet(balance, numberOfLines);
-const reels = spin();
-const rows = transpose(reels);
-printRows(rows);
-const winnings = getWinnings(rows, bet, numberOfLines);
-console.log(`You won PHP ${winnings.toFixed(2)}.`);
+const game = () => {
+  balance = deposit(); // Update the balance variable
+
+  while (true) {
+    console.log('You have a balance of PHP ' + balance);
+    const numberOfLines = getNumberOfLines();
+    const bet = getBet(balance, numberOfLines);
+    balance -= bet * numberOfLines; // Corrected the subtraction
+
+    const reels = spin();
+    const rows = transpose(reels);
+    printRows(rows);
+    const winnings = getWinnings(rows, bet, numberOfLines);
+    balance += winnings;
+    console.log(`You won PHP ${winnings.toFixed(2)}.`);
+
+    if (balance <= 0) {
+      console.log("You ran out of money!");
+      break;
+    }
+
+    // 7. Play again
+    const playAgain = prompt("Do you want to play again (y/n)? ");
+    if (playAgain !== "y") // Corrected the variable name
+      break;
+  }
+}
 
 // Additional functions
 function transpose(reels) {
@@ -138,7 +159,5 @@ function printRows(rows) {
   }
 }
 
-
-
-
-
+// Start the game
+game();
