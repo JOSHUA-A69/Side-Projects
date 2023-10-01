@@ -18,6 +18,9 @@ struct Player {
     float balance;
     int gamesPlayed;
     float totalWinnings;
+    float highestSingleWin;
+    float lowestSingleWin;
+    float timePlayed; // Time played in minutes
     struct Player* next;
 };
 
@@ -31,6 +34,9 @@ void pushPlayer(const char* name) {
     newPlayer->balance = 1000; // Set starting balance to 1000
     newPlayer->gamesPlayed = 0;
     newPlayer->totalWinnings = 0;
+    newPlayer->highestSingleWin = 0;
+    newPlayer->lowestSingleWin = 0;
+    newPlayer->timePlayed = 0;
     newPlayer->next = topPlayer;
     topPlayer = newPlayer;
 }
@@ -155,7 +161,7 @@ void printRows(char rows[ROWS][COLS]) {
     }
 }
 
- // Function to play the slot machine game
+// Function to play the slot machine game
 void playGame() {
     char playerName[50];
     printf("\n\n\t\t\t\t\tEnter your name: ");
@@ -222,6 +228,16 @@ void playGame() {
 
         float winnings = getWinnings(rows, bet, numberOfLines);
 
+        // Update Highest Single Win
+        if (winnings > currentPlayer->highestSingleWin) {
+            currentPlayer->highestSingleWin = winnings;
+        }
+
+        // Update Lowest Single Win
+        if (currentPlayer->lowestSingleWin == 0 || winnings < currentPlayer->lowestSingleWin) {
+            currentPlayer->lowestSingleWin = winnings;
+        }
+
         // Add the winnings to the player's balance
         currentPlayer->balance += winnings;
 
@@ -230,6 +246,9 @@ void playGame() {
 
         printf("\n\n\t\t\t\t\tYou won PHP %.2f\n", winnings);
         printf("\n\n\t\t\t\t\tYour new balance is PHP %.2f\n", currentPlayer->balance);
+
+        // Update Time Played (assuming 5 minutes per game)
+        currentPlayer->timePlayed += 5.0;
 
         char playAgain;
         printf("\n\n\t\t\t\t\tDo you want to play again? (y/n): ");
@@ -260,6 +279,31 @@ void displayPlayerStats() {
         printf("\t\t\t\t\tBalance: PHP %.2f\n", player->balance);
         printf("\t\t\t\t\tGames Played: %d\n", player->gamesPlayed);
         printf("\t\t\t\t\tTotal Winnings: PHP %.2f\n", player->totalWinnings);
+
+        // Calculate and display Win/Loss Ratio
+        if (player->gamesPlayed > 0) {
+            float winLossRatio = (float)player->gamesPlayed / (player->gamesPlayed - (player->totalWinnings / 1000));
+            printf("\t\t\t\t\tWin/Loss Ratio: %.2f\n", winLossRatio);
+        } else {
+            printf("\t\t\t\t\tWin/Loss Ratio: N/A (No games played)\n");
+        }
+
+        // Calculate and display Average Winnings per Game
+        if (player->gamesPlayed > 0) {
+            float avgWinningsPerGame = player->totalWinnings / player->gamesPlayed;
+            printf("\t\t\t\t\tAverage Winnings per Game: PHP %.2f\n", avgWinningsPerGame);
+        } else {
+            printf("\t\t\t\t\tAverage Winnings per Game: N/A (No games played)\n");
+        }
+
+        // Display Highest Single Win
+        printf("\t\t\t\t\tHighest Single Win: PHP %.2f\n", player->highestSingleWin);
+
+        // Display Lowest Single Win
+        printf("\t\t\t\t\tLowest Single Win: PHP %.2f\n", player->lowestSingleWin);
+
+        // Display Time Played
+        printf("\t\t\t\t\tTime Played: %.2f minutes\n", player->timePlayed);
 
         char returnToMenu;
         printf("\n\n\t\t\t\t\tReturn to the menu? (y/n): ");
